@@ -22,8 +22,13 @@ public class Dog extends Animal { // extends --> Dog is an Animal
         System.out.println("Dog bark");
     }
 
-    public void move(int speed) {
-        System.out.println("Dog moves with speed: "+speed);
+//    public void move(int speed) {
+//        System.out.println("Dog moves with speed: "+speed);
+//    }
+
+    @Override
+    public void move(int s) {
+        System.out.println("Dog moves");
     }
 
     public String getBreed() {

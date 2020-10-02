@@ -10,7 +10,7 @@ public class Animal {
 
     private String color;
 
-    //    private boolean legs;
+    //private boolean legs;
 
 //    public Animal() {
 //    }
