@@ -9,7 +9,6 @@ public class Account {
     double balance; //0, 0.0 sau false
 
     public Account() {
-
         this("John Anonynous", "0000000000", 0);
 
         //this is exactly default constrcutor
@@ -20,6 +19,7 @@ public class Account {
     }
 
     public Account(String customerName, String iban, double balance) {
+        super();
         System.out.println("Constructor with params called");
         //add validation
         this.customerName = customerName;
@@ -29,6 +29,7 @@ public class Account {
             throw new IllegalArgumentException("Balance should be positive");
         }
         this.balance = balance;
+
     }
 
     //behaviour
@@ -79,5 +80,7 @@ public class Account {
             throw new IllegalArgumentException("Balance should be positive");
         }
         this.balance = balance;
+        //myAccount.setBalance(100); this --> myAccount
+        // this este o referinta catre obiectul care invoca metoda
     }
 }
