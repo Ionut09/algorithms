@@ -18,10 +18,9 @@ public class Student {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(int grade) throws StudentGradeValidationException {
         if (grade < 1 || grade > 10) {
-            RuntimeException exception = new RuntimeException("Student grade should be between 1 and 10.");
-            throw exception;
+            throw new StudentGradeValidationException("Student grade should be between 1 and 10.");
         }
 
         //grade calculation

@@ -19,6 +19,10 @@ public class PlayingDangerous {
     }
 
     private static void setGrade(Student student, int grade) {
-        student.setGrade(grade);
+        try {
+            student.setGrade(grade);
+        } catch (StudentGradeValidationException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
