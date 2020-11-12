@@ -1,7 +1,5 @@
 package com.lseg.movie_rental_homework;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class VideoStore {
