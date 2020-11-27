@@ -70,7 +70,7 @@ public class Lists {
 //        badRemoveException(languages);
 
         //boolean test(String t);
-//        languages.removeIf((String language) -> language.startsWith("J") || language.length() > 2);
+//      languages.removeIf((String language) -> language.startsWith("J") || language.length() > 2);
         oldWayFiltering(languages, "Java");
         System.out.println("After removing Java with Iterator: " + languages);
 
