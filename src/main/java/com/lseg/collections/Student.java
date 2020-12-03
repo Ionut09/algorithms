@@ -2,38 +2,43 @@ package com.lseg.collections;
 
 import java.util.Objects;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.ToString;
 
-//lombocizarea
-public class Student {
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@EqualsAndHashCode //ca sa evite inconsistente ale contractului dintre equals si hashcode
+@ToString
+@Data
+@Builder
+public class Student {//implements Comparable<Student> {
+
+//    @EqualsAndHashCode.Exclude
     private int age;
 
+    @Getter
+    @NonNull
     private String name;
 
-    public Student(int age, String name) {
-        this.age = age;
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "age=" + age +
-                ", name='" + name + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-
-        return age == student.age && name.equals(student.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(age, name);
-    }
+    /**
+     * compare bu name ascending then by age descending
+     */
+//    @Override
+//    public int compareTo(Student other) {
+//        int compareByName = this.name.compareTo(other.name);
+//        if (compareByName == 0) {
+//            return Integer.valueOf(this.age).compareTo(other.age) * (-1);
+//        }
+//        return compareByName;
+//    }
 }
+
