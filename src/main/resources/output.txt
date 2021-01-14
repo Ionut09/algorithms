@@ -1,0 +1,22 @@
+inception.class
+inception.class
+index
+index.pb
+info
+info
+inheritance
+inheritance
+inner_classes
+inner_classes
+input.txt
+input.txt
+input.txt exists: true
+inputfiles.lst
+inputfiles.lst
+instancemethods.class
+instancemethods.java
+instancevariables.class
+instancevariables.java
+interfaces
+interfaces
+permissions = true

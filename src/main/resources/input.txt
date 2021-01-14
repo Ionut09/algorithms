@@ -1,0 +1,22 @@
+input.txt exists: true
+permissions = true
+inputFiles.lst
+inputFiles.lst
+input.txt
+Inception.class
+InstanceMethods.class
+InstanceVariables.class
+inheritance
+interfaces
+Inception.class
+inner_classes
+index.pb
+info
+index
+info
+InstanceMethods.java
+InstanceVariables.java
+inheritance
+interfaces
+inner_classes
+input.txt
