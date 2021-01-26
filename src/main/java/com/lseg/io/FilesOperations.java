@@ -60,7 +60,7 @@ public class FilesOperations {
              .forEach(line -> write(out, line));
 
         Files.lines(Paths.get("file.csv"))
-             .map(line->line.split(","))
+             .map(line->line.split(","));
              //mapare cu obiecte obiecte Java
 //           .flatMap(Arrays::stream)
     }

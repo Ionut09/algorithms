@@ -18,8 +18,8 @@ public class Cinema {
                     + movie.getName() + " --> "
                     + movie.plot());//plot care va fi executata nu e cunoscuta decat la runtime
         }
-
-
+        var s1 = "abc";
+        System.out.println(s1);
         var primul = new COntainedObject();
         Second second = new Second(primul);
 
