@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -44,8 +45,6 @@ public class ElementsInteraction {
         wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(5))
                                        .pollingEvery(Duration.ofSeconds(1))
                                        .ignoring(NoSuchElementException.class);
-
-
     }
 
     @AfterMethod
@@ -62,6 +61,7 @@ public class ElementsInteraction {
     }
 
     @Test
+    @Parameters
     public void findingElements() {
         navigate("https://www.calculator.net/mortgage-calculator.html");
 
@@ -118,12 +118,47 @@ public class ElementsInteraction {
 //      tabelWithPrices.findElements(By.xpath(".//*")) //all sub elements of tabelWithPrices
 //                     .forEach(System.out::println);
         String price = tabelWithPrices.findElement(By.tagName("div")) //By tag name intoarce primul tag inatlnit
+//        String price = tabelWithPrices.findElement(By.linkText("Bak /// GD")) //
                                       .findElement(By.xpath("//div[3]/div[1]/div/div/span"))
                                       .getText();
+//        sleep(1000000);
         System.out.println("price = " + price);
     }
     //table data
     //
+
+    @Test
+    public void calculatePercentOfNumber() {
+        navigate("https://www.calculator.net/percent-calculator.html");
+
+        WebElement input1 = new WebDriverWait(driver, 3)
+                                .until(d -> find(By.id("cpar1")));
+        input1.sendKeys("19");
+
+        sleep(1000);
+        find(By.id("cpar2")).sendKeys("35000");
+        sleep(1000);
+
+        find(By.xpath("//*[@id=\"content\"]/table[1]/tbody/tr[2]/td/input[2]")).click();
+        String actualValue1 = find(By.xpath("//*[@id=\"content\"]/h2[1]")).getText();
+        String actualValue2 = find(By.xpath("//*[@id=\"content\"]/p[2]/font/b")).getText();
+        String actualValue3 = find(By.xpath("//*[@id=\"content\"]/p[3]/*")).getText();
+
+        assertEquals(actualValue1.substring(actualValue1.length() - 4), "6650");
+        assertEquals(actualValue2, "6650");
+
+        //primesc eroare : The result of the xpath expression "//*[@id="content"]/p[3]/text()" is: [object Text]. It should be an element.
+        WebElement content = find(By.xpath("//*[@id=\"content\"]"));
+        content.findElements(By.tagName("p"))
+               .stream()
+               .map(WebElement::getText)
+               .filter(s -> s.matches("(\\d+)%\\s(of).*"))
+               .map(s -> s.substring(s.indexOf("= ") + 2))
+               .forEach(System.out::println);
+
+        //assertEquals(actualValue3.substring(actualValue1.length()-4), "6650");
+
+    }
 
     private WebElement find(By by) {
         return driver.findElement(by);
